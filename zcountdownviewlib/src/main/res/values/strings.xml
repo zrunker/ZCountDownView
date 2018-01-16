@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ZCountDownViewLib</string>
+    <string name="colon">:</string>
+    <string name="single_countdown"><Data>&lt;font color=#FF7198>%s&lt;/font>秒后重发</Data></string>
+    <string name="single_countdown_end"><Data>&lt;font color=#CCCCCC>%s&lt;/font>秒后重发</Data></string>
+</resources>

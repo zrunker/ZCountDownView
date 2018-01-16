@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cc.ibooker.zcountdownviewlib.CountDownView
+        android:id="@+id/countdownView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp" />
+
+    <cc.ibooker.zcountdownviewlib.SingleCountDownView
+        android:id="@+id/singleCountDownView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/countdownView"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/code_border_highlight"
+        android:paddingEnd="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingStart="15dp"
+        android:textColor="#FF7198"
+        android:textSize="13sp" />
+
+</RelativeLayout>
