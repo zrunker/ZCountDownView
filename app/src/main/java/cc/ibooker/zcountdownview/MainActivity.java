@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
                 .setHourColonTvBackgroundColorHex("#00FFFFFF")
                 .setHourColonTvSize(18, 0)
+
                 .setHourColonTvTextColorHex("#FF7198")
                 .setHourColonTvGravity(CountDownView.CountDownViewGravity.GRAVITY_CENTER)
                 .setHourColonTvTextSize(21)
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 .setSecondTvBackgroundRes(R.mipmap.panicbuy_time)
                 .setSecondTvTextColorHex("#FFFFFF")
                 .setSecondTvTextSize(21)
+
+//                .setTimeTvWH(18, 40)
+//                .setColonTvSize(30)
 
                 // 开启倒计时
                 .startCountDown()

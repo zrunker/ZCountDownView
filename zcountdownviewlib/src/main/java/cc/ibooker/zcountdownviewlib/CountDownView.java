@@ -38,7 +38,7 @@ public class CountDownView extends LinearLayout {
     private TextView hourTv, minuteTv, secondTv, hourColonTv, minuteColonTv;
     private long timeStamp;// 倒计时时间戳
     private boolean isContinue = false;// 是否开启倒计时
-    private ExecutorService mExecutorService = Executors.newCachedThreadPool();// 缓存线程池
+    private ExecutorService mExecutorService = Executors.newSingleThreadExecutor();// 缓存线程池
 
     public CountDownView(Context context) {
         this(context, null);
@@ -96,6 +96,221 @@ public class CountDownView extends LinearLayout {
         secondTv.setGravity(Gravity.CENTER);
         this.addView(secondTv);
     }
+
+    /**
+     * 设置时间控件尺寸
+     *
+     * @param width  宽 0取默认值
+     * @param height 高 0取默认值
+     * @return CountDownView
+     */
+    public CountDownView setTimeTvWH(int width, int height) {
+        if (width > 0 && height > 0) {
+            ViewGroup.LayoutParams params = new LayoutParams(width, height);
+            hourTv.setLayoutParams(params);
+            minuteTv.setLayoutParams(params);
+            secondTv.setLayoutParams(params);
+        }
+        return this;
+    }
+
+    /**
+     * 设置时间控件字体大小
+     *
+     * @param size 字体大小
+     * @return CountDownView
+     */
+    public CountDownView setTimeTvSize(float size) {
+        hourTv.setTextSize(size);
+        minuteTv.setTextSize(size);
+        secondTv.setTextSize(size);
+        return this;
+    }
+
+    /**
+     * 设置时间控件字体颜色
+     *
+     * @param colorHex 字体颜色十六进制 “#FFFFFF”
+     * @return CountDownView
+     */
+    public CountDownView setTimeTvTextColorHex(String colorHex) {
+        int color = Color.parseColor(colorHex);
+        hourTv.setTextColor(color);
+        minuteTv.setTextColor(color);
+        secondTv.setTextColor(color);
+        return this;
+    }
+
+    /**
+     * 设置时间控件背景
+     *
+     * @param colorHex 背景颜色16进制“#FFFFFF”
+     * @return CountDownView
+     */
+    public CountDownView setTimeTvBackgroundColorHex(String colorHex) {
+        int color = Color.parseColor(colorHex);
+        hourTv.setBackgroundColor(color);
+        minuteTv.setBackgroundColor(color);
+        secondTv.setBackgroundColor(color);
+        return this;
+    }
+
+    /**
+     * 设置时间控件背景
+     *
+     * @param res 背景资源ID
+     * @return CountDownView
+     */
+    public CountDownView setTimeTvBackgroundRes(int res) {
+        hourTv.setBackgroundResource(res);
+        minuteTv.setBackgroundResource(res);
+        secondTv.setBackgroundResource(res);
+        return this;
+    }
+
+    /**
+     * 修改时间控件背景
+     *
+     * @param drawable 背景资源Drawable
+     * @return CountDownView
+     */
+    public CountDownView setTimeTvBackground(Drawable drawable) {
+        if (drawable != null)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                hourTv.setBackground(drawable);
+                minuteTv.setBackground(drawable);
+                secondTv.setBackground(drawable);
+            }
+        return this;
+    }
+
+    /**
+     * 设置时间控件内部字体位置 - 默认居中
+     *
+     * @param countDownViewGravity 左上右下中
+     */
+    public CountDownView setTimeTvGravity(CountDownViewGravity countDownViewGravity) {
+        int gravity = Gravity.CENTER;
+        if (countDownViewGravity == CountDownViewGravity.GRAVITY_BOTTOM) {
+            gravity = Gravity.BOTTOM;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_CENTER) {
+            gravity = Gravity.CENTER;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_LEFT) {
+            gravity = Gravity.START;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_RIGHT) {
+            gravity = Gravity.END;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_TOP) {
+            gravity = Gravity.TOP;
+        }
+        hourTv.setGravity(gravity);
+        minuteTv.setGravity(gravity);
+        secondTv.setGravity(gravity);
+        return this;
+    }
+
+
+    /**
+     * 设置冒号控件尺寸
+     *
+     * @param width  宽 0取默认值
+     * @param height 高 0取默认值
+     * @return CountDownView
+     */
+    public CountDownView setColonTvWH(int width, int height) {
+        ViewGroup.LayoutParams params = new LayoutParams(width, height);
+        hourColonTv.setLayoutParams(params);
+        minuteColonTv.setLayoutParams(params);
+        return this;
+    }
+
+    /**
+     * 设置冒号控件字体大小
+     *
+     * @param size 字体大小
+     * @return CountDownView
+     */
+    public CountDownView setColonTvSize(float size) {
+        hourColonTv.setTextSize(size);
+        minuteColonTv.setTextSize(size);
+        return this;
+    }
+
+    /**
+     * 设置冒号控件字体颜色
+     *
+     * @param colorHex 字体颜色十六进制 “#FFFFFF”
+     * @return CountDownView
+     */
+    public CountDownView setColonTvTextColorHex(String colorHex) {
+        int color = Color.parseColor(colorHex);
+        hourColonTv.setTextColor(color);
+        minuteColonTv.setTextColor(color);
+        return this;
+    }
+
+    /**
+     * 设置冒号控件背景
+     *
+     * @param colorHex 背景颜色16进制“#FFFFFF”
+     * @return CountDownView
+     */
+    public CountDownView setColonTvBackgroundColorHex(String colorHex) {
+        int color = Color.parseColor(colorHex);
+        hourColonTv.setBackgroundColor(color);
+        minuteColonTv.setBackgroundColor(color);
+        return this;
+    }
+
+    /**
+     * 设置冒号控件背景
+     *
+     * @param res 背景资源ID
+     * @return CountDownView
+     */
+    public CountDownView setColonTvBackgroundRes(int res) {
+        hourColonTv.setBackgroundResource(res);
+        minuteColonTv.setBackgroundResource(res);
+        return this;
+    }
+
+    /**
+     * 修改冒号控件背景
+     *
+     * @param drawable 背景资源Drawable
+     * @return CountDownView
+     */
+    public CountDownView setColonTvBackground(Drawable drawable) {
+        if (drawable != null)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                hourColonTv.setBackground(drawable);
+                minuteColonTv.setBackground(drawable);
+            }
+        return this;
+    }
+
+    /**
+     * 设置冒号控件内部字体位置 - 默认居中
+     *
+     * @param countDownViewGravity 左上右下中
+     */
+    public CountDownView setColonTvGravity(CountDownViewGravity countDownViewGravity) {
+        int gravity = Gravity.CENTER;
+        if (countDownViewGravity == CountDownViewGravity.GRAVITY_BOTTOM) {
+            gravity = Gravity.BOTTOM;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_CENTER) {
+            gravity = Gravity.CENTER;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_LEFT) {
+            gravity = Gravity.START;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_RIGHT) {
+            gravity = Gravity.END;
+        } else if (countDownViewGravity == CountDownViewGravity.GRAVITY_TOP) {
+            gravity = Gravity.TOP;
+        }
+        hourColonTv.setGravity(gravity);
+        minuteColonTv.setGravity(gravity);
+        return this;
+    }
+
 
     /**
      * 设置小时控件尺寸

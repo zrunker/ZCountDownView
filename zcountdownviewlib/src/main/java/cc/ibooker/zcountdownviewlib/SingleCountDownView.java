@@ -19,7 +19,7 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
     private static final int UPDATE_UI_CODE = 101;
     private int retryInterval = 60, time = 60;
     private boolean isContinue = true;
-    private ExecutorService mExecutorService = Executors.newCachedThreadPool();
+    private ExecutorService mExecutorService = Executors.newSingleThreadExecutor();
 
     private String prefixText = "", timeColorHex = "#FF7198", suffixText = "秒后重发";
 
@@ -132,7 +132,6 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
                 try {
                     while (isContinue) {
                         isContinue = time-- > 1;
-
 //                        String text = getResources().getString(R.string.single_countdown, time + "");
                         String text = prefixText + "<font color=" + timeColorHex + ">" + time + "</font>" + suffixText;
                         Message message = new Message();
