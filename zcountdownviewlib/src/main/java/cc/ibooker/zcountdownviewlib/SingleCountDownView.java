@@ -103,12 +103,9 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
      * @return CountDownView
      */
     public SingleCountDownView startCountDown() {
-        if (time <= 1) {
-            this.isContinue = false;
-        } else {
-            this.isContinue = true;
-            countDown();
-        }
+        this.time = this.retryInterval;
+        this.isContinue = true;
+        countDown();
         return this;
     }
 
@@ -196,7 +193,8 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
                     // 刷新UI
                     if (msg.obj != null) {
                         currentSingleCountDownView.setText(Html.fromHtml(msg.obj.toString()));
-                        if (currentSingleCountDownView.time < currentSingleCountDownView.retryInterval && currentSingleCountDownView.time > 0) {
+                        if (currentSingleCountDownView.time < currentSingleCountDownView.retryInterval
+                                && currentSingleCountDownView.time > 0) {
                             currentSingleCountDownView.setEnabled(false);
                         } else {
                             currentSingleCountDownView.setEnabled(true);
