@@ -1074,6 +1074,18 @@ public class CountDownView extends LinearLayout {
     }
 
     /**
+     * 销毁
+     */
+    public void destoryCountDownView() {
+        if (mExecutorService != null)
+            mExecutorService.shutdownNow();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+            myHandler = null;
+        }
+    }
+
+    /**
      * 实现倒计时的功能
      */
     private void countDown() {

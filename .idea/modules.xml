@@ -3,10 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ZCountDownView.iml" filepath="$PROJECT_DIR$/ZCountDownView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZCountDownView.iml" filepath="$PROJECT_DIR$/ZCountDownView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://E:\Android_Studio\ZCountDownView\app\app.iml" filepath="E:\Android_Studio\ZCountDownView\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/zcountdownviewlib/zcountdownviewlib.iml" filepath="$PROJECT_DIR$/zcountdownviewlib/zcountdownviewlib.iml" />
-      <module fileurl="file://E:\Android_Studio\ZCountDownView\zcountdownviewlib\zcountdownviewlib.iml" filepath="E:\Android_Studio\ZCountDownView\zcountdownviewlib\zcountdownviewlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zcountdownviewlib/zcountdownviewlib.iml" filepath="$PROJECT_DIR$/zcountdownviewlib/zcountdownviewlib.iml" />
     </modules>
   </component>
 </project>

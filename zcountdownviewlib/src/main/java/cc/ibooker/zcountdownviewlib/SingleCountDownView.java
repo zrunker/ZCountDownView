@@ -21,7 +21,7 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
     private boolean isContinue = true;
     private ExecutorService mExecutorService = Executors.newSingleThreadExecutor();
 
-    private String prefixText = "", timeColorHex = "#FF7198", suffixText = "秒后重发";
+    private String text = "获取验证码", prefixText = "", timeColorHex = "#FF7198", suffixText = "秒后重发";
 
     public SingleCountDownView(Context context) {
         this(context, null);
@@ -39,7 +39,7 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
     // 初始化
     private void init() {
         this.setGravity(Gravity.CENTER);
-        this.setText("获取验证码");
+        this.setText(text);
     }
 
     /**
@@ -50,6 +50,17 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
      */
     public SingleCountDownView setTimeColorHex(String colorHex) {
         this.timeColorHex = colorHex;
+        return this;
+    }
+
+    /**
+     * 设置文本显示
+     *
+     * @param text 文本内容
+     */
+    public SingleCountDownView setDefaultText(String text) {
+        this.text = text;
+        this.setText(text);
         return this;
     }
 
@@ -121,6 +132,17 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
         return this;
     }
 
+    /**
+     * 销毁
+     */
+    public void destorySingleCountDownView() {
+        if (mExecutorService != null)
+            mExecutorService.shutdownNow();
+        if (myHandler != null) {
+            myHandler.removeCallbacksAndMessages(null);
+            myHandler = null;
+        }
+    }
 
     /**
      * 实现倒计时的功能
@@ -182,6 +204,8 @@ public class SingleCountDownView extends android.support.v7.widget.AppCompatText
                     }
                     // 倒计时结束
                     if (!currentSingleCountDownView.isContinue) {
+                        currentSingleCountDownView.setText(currentSingleCountDownView.text);
+
                         if (currentSingleCountDownView.singleCountDownEndListener != null)
                             currentSingleCountDownView.singleCountDownEndListener.onSingleCountDownEnd();
                     }
