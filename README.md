@@ -1,8 +1,6 @@
 # ZCountDownView
 倒计时，自定义实现单个时间倒计时控件，和自定义实现时分秒倒计时控件。
 
->作者：邹峰立，微博：zrunker，邮箱：zrunker@yahoo.com，微信公众号：书客创作，个人平台：[www.ibooker.cc](http://www.ibooker.cc)。
-
 >本文选自[书客创作](http://www.ibooker.cc)平台第140篇文章。[阅读原文](http://www.ibooker.cc/article/140/detail) 。
 
 ![书客创作](http://upload-images.jianshu.io/upload_images/3480018-fe0b6f5909e6cdf4..jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
